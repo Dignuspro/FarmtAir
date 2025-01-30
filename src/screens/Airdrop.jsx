@@ -1,11 +1,11 @@
 import React from 'react';
 
-function Daily() {
+function Airdrop() {
   return (
     <div>
-      <h1>Daily</h1>
+      <h1>Airdrop</h1>
     </div>
   );
 }
 
-export default Daily;
+export default Airdrop;
