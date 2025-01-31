@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import './App.css';
+
 import Home from './screens/Home';
 import Airdrop from './screens/Airdrop';
 import Daily from './screens/Daily';
 import Earn from './screens/Earn';
-import Referrals from './screens/Referrals'; // Nuevo componente Referrals
-import supabase from './supabaseClient';  // Importa el cliente de Supabase
+import Referrals from './screens/Referrals';
+import supabase from './supabaseClient';  
+import BottomNavigation from './components/BottomNavigation'; // Importa BottomNavigation
 
 function App() {
   const [data, setData] = useState([]);
@@ -33,11 +34,16 @@ function App() {
         <Route path="/earn" element={<Earn />} />
         <Route path="/referrals" element={<Referrals />} />
       </Routes>
+
+      {/* Renderizar la data desde Supabase */}
       {data && data.map(item => (
         <div key={item.id}>
-          <p>{item.nombre}</p>  {/* Asegúrate de que 'nombre' es una columna en tu tabla */}
+          <p>{item.nombre}</p>  
         </div>
       ))}
+
+      {/* Agregar BottomNavigation */}
+      <BottomNavigation />
     </div>
   );
 }
